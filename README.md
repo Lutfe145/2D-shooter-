@@ -1,29 +1,35 @@
-# 2D-shooter-
-The Gesture-Controlled Shooter Game is a Python-based interactive game that uses OpenCV, Pygame, and Mediapipe to control gameplay through hand gestures. A webcam tracks hand movements in real time, allowing the player to move and shoot without a keyboard or mouse, creating a touch-free and immersive gaming experience.
- 🎯 Features
-- Gesture-based shooting (pinch detection)
-- Real-time hand tracking
-- Toggle between gesture and mouse control (`G` key)
-- Score, health, and timer system
-- Sound effects and visual feedback
+# Gesture Shooter
 
- 🧠 Tech Stack
-- Python  
-- OpenCV  
-- Mediapipe  
-- Pygame  
+Aim at the target and score as many hits as you can in 30 seconds. You start with five health points and lose one for each miss.
 
+## Install and play
 
- 🎮 Controls
-| Action | Control |
-|--------|--------|
-| Move | Hand / Mouse |
-| Shoot | Pinch / Left Click |
-| Toggle Mode | Press `G` |
+Use Python 3.12 and run these commands from the repository root.
 
+### macOS and Linux
 
-
-▶️ How to Run
 ```bash
-pip install -r requirements.txt
-python main.py
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python main.py
+```
+
+### Windows PowerShell
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe main.py
+```
+
+The game starts in mouse mode. Aim with the mouse and left-click to shoot. With a fresh checkout, the game draws its own background, target, and crosshair and plays silently. To customize it, place `bg.jpg`, `enemy.png`, `crosshair.png`, or `shoot.wav` in `assets/`.
+
+## Optional webcam controls
+
+To enable gesture mode on a machine with a webcam, install the optional libraries into the same Python 3.12 virtual environment. On Windows, replace `.venv/bin/python` with `.\.venv\Scripts\python.exe`.
+
+```bash
+.venv/bin/python -m pip install "mediapipe==0.10.21" "opencv-contrib-python==4.11.0.86" "numpy==1.26.4"
+```
+
+Launch the game and press `G` to switch to gesture mode. Move your index finger to aim and pinch it against your thumb to shoot. Press `G` again to return to mouse mode. If the libraries or webcam are unavailable, the game stays in mouse mode and prints the reason in the terminal.
